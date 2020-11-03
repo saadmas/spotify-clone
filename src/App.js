@@ -1,9 +1,11 @@
+import Login from './components/Login/Login';
+
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="app">
-      <h1> Spotify Clone</h1>
+      <Login />
     </div>
   );
 }
