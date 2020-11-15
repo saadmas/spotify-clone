@@ -12,12 +12,12 @@ const scopes = [
 export const loginUrl =
   `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
 
-export const getTokenFromUrl = () =>
+export const getHashFromUrl = () =>
   window.location.hash
     .substring(1)
     .split('&')
-    .reduce((initial, item) => {
+    .reduce((hashStore, item) => {
       const [key, value] = item.split('=');
-      initial[key] = decodeURIComponent(value);
-      return initial;
+      hashStore[key] = decodeURIComponent(value);
+      return hashStore;
     }, {});
