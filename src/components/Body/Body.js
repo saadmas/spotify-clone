@@ -4,9 +4,9 @@ import './Body.css';
 
 const Body = () => {
   return (
-    <div>
+    <section className="body">
       Body
-    </div>
+    </section>
   );
 };
 

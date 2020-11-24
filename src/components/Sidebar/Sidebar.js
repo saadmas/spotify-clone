@@ -4,9 +4,9 @@ import './Sidebar.css';
 
 const Sidebar = () => {
   return (
-    <div>
+    <section className="sidebar">
       Sidebar!
-    </div>
+    </section>
   );
 };
 
