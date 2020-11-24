@@ -5,30 +5,41 @@ import Login from './components/Login/Login';
 import Player from './components/Player/Player';
 import { getHashFromUrl } from './utils/spotify';
 import { useDataLayerValue } from './state/DataLayer';
+import { SET_TOKEN, SET_USER } from './state/actions';
 
 import './App.css';
 
 const spotifyApi = new SpotifyWebApi();
 
 const App = () => {
-  const [accessToken, setAccessToken] = React.useState('');
   const [{}, dispatch] = useDataLayerValue();
-  
-  // Spotify token logic
+
   React.useEffect(() => {
+    const setSpotifyAccessToken = () => {
+      const { access_token } = getHashFromUrl();
+      window.location.hash = '';
+
+      if (!access_token) {
+        //* Error handling
+        return;
+      }
+
+      dispatch({ type: SET_TOKEN, token: access_token });
+      spotifyApi.setAccessToken(access_token);
+    };
+
+    const setSpotifyUser = async () => {
+      const user = await spotifyApi.getMe();
+      //* Error handling
+      dispatch({ type: SET_USER, user });
+    };
+
     if (!window.location.hash) {
       return;
     }
 
-    const { access_token } = getHashFromUrl();
-    window.location.hash = '';
-
-    if (!access_token) {
-      return;
-    }
-
-    setAccessToken(access_token);
-    spotifyApi.setAccessToken(access_token);
+    setSpotifyAccessToken();
+    setSpotifyUser();
   }, []);
 
   return (
