@@ -5,7 +5,8 @@ export const initialState = {
   playlists: [],
   isPlaying: false,
   currentSong: null,
-  token: null
+  /// remove after dev
+  token: "BQD6ad6BeiW6uTTA6mf1UISs-xFqsjGa1cZLUujKta9rH4AeK3YT0pf2_Bhf-clUmrW_9pTjm6aRkmLPB13zkcYlCe2R7RWPntysY8ta8t51BJpFDi5jZLhLBYd8VdKmkS5n8ttcMzT_TbHj5pmIc5rnf1rbH-SUAw"
 };
 
 const reducer = (state, action) => {

@@ -1,8 +1,17 @@
 import React from 'react';
+import Body from '../Body/Body';
+import Sidebar from '../Sidebar/Sidebar';
 
-const Player = () => {
+import './Player.css';
+
+const Player = ({ spotifyApi }) => {
   return (
-    <h1>Welcome to SPTFY</h1>
+    <div className="player">
+      <div className="player_body">
+        <Sidebar/>
+        <Body />
+      </div>
+    </div>
   );
 };
 

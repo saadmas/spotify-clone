@@ -12,7 +12,7 @@ import './App.css';
 const spotifyApi = new SpotifyWebApi();
 
 const App = () => {
-  const [{}, dispatch] = useDataLayerValue();
+  const [{ token }, dispatch] = useDataLayerValue();
 
   React.useEffect(() => {
     const setSpotifyAccessToken = () => {
@@ -40,12 +40,12 @@ const App = () => {
 
     setSpotifyAccessToken();
     setSpotifyUser();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">
       {
-        accessToken ? <Player /> : <Login />
+        token ? <Player spotifyApi={spotifyApi}/> : <Login />
       }
     </div>
   );
