@@ -5,7 +5,7 @@ import Login from './components/Login/Login';
 import Player from './components/Player/Player';
 import { getHashFromUrl } from './utils/spotify';
 import { useDataLayerValue } from './state/DataLayer';
-import { SET_TOKEN, SET_USER } from './state/actions';
+import { SET_TOKEN, SET_USER, SET_PLAYLISTS } from './state/actions';
 
 import './App.css';
 
@@ -33,6 +33,11 @@ const App = () => {
       //* Error handling
       dispatch({ type: SET_USER, user });
     };
+    
+    const setSpotifyPlaylists = async () => {
+      const playlists = await spotifyApi.getUserPlaylists();
+      dispatch({ type: SET_PLAYLISTS, playlists });
+    };
 
     if (!window.location.hash) {
       return;
@@ -40,7 +45,10 @@ const App = () => {
 
     setSpotifyAccessToken();
     setSpotifyUser();
+    setSpotifyPlaylists();
   }, [dispatch]);
+
+  
 
   return (
     <div className="app">

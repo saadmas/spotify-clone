@@ -11,6 +11,13 @@
   color: white;
 }
 
+.sidebar_option > p {
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+
 .sidebar_option_icon {
   padding-left: 10px;
   padding-right: 10px;

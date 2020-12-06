@@ -1,4 +1,4 @@
-import { SET_TOKEN, SET_USER } from "./actions";
+import { SET_PLAYLISTS, SET_TOKEN, SET_USER } from "./actions";
 
 export const initialState = {
   user: null,
@@ -6,7 +6,7 @@ export const initialState = {
   isPlaying: false,
   currentSong: null,
   /// remove after dev
-  token: "BQD6ad6BeiW6uTTA6mf1UISs-xFqsjGa1cZLUujKta9rH4AeK3YT0pf2_Bhf-clUmrW_9pTjm6aRkmLPB13zkcYlCe2R7RWPntysY8ta8t51BJpFDi5jZLhLBYd8VdKmkS5n8ttcMzT_TbHj5pmIc5rnf1rbH-SUAw"
+  // token: "BQD6ad6BeiW6uTTA6mf1UISs-xFqsjGa1cZLUujKta9rH4AeK3YT0pf2_Bhf-clUmrW_9pTjm6aRkmLPB13zkcYlCe2R7RWPntysY8ta8t51BJpFDi5jZLhLBYd8VdKmkS5n8ttcMzT_TbHj5pmIc5rnf1rbH-SUAw"
 };
 
 const reducer = (state, action) => {
@@ -22,6 +22,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         token: action.token
+      }
+    case SET_PLAYLISTS:
+      return {
+        ...state,
+        playlists: action.playlists
       }
     default:
       return state;

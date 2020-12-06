@@ -5,10 +5,10 @@ import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 
 import './SidebarOption.css';
 
-const SidebarOption = ({ option }) => {
+const SidebarOption = ({ title }) => {
 
   const getIcon = () => {
-    switch (option) {
+    switch (title) {
       case 'Home':
         return HomeIcon;
       case 'Search':
@@ -25,11 +25,11 @@ const SidebarOption = ({ option }) => {
   return Icon ? (
     <section className="sidebar_option">  
       <Icon className="sidebar_option_icon"/>
-      <p>{option}</p>
+      <h4>{title}</h4>
     </section>
   ) : (
     <section className="sidebar_option">  
-      <h4>{option}</h4>
+      <p>{title}</p>
     </section>
   );
 };
