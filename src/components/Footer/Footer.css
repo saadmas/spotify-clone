@@ -23,6 +23,24 @@
   max-width: 300px;
 }
 
+.footer_icon > * {
+  transition: 200ms opacity ease-in;
+}
+
+.footer_icon:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
 .footer_right {
   flex: 0.3;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.footer_right .MuiSlider-colorPrimary {
+  color: white;
 }
