@@ -1,11 +1,13 @@
 import React from 'react';
 
+import Header from '../Header/Header';
+
 import './Body.css';
 
-const Body = () => {
+const Body = ({ spotifyApi }) => {
   return (
     <section className="body">
-      Body
+      <Header spotifyApi={spotifyApi} />
     </section>
   );
 };

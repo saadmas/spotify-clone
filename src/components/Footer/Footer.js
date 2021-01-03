@@ -14,7 +14,10 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer_left">
-        <p>Album and song details</p>
+        <div className="footer_songInfo">
+          <h4>Road</h4>
+          <p>Lane 8</p>
+        </div>
       </div>
       <div className="footer_center">
         <ShuffleIcon className="footer_icon" />

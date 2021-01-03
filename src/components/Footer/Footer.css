@@ -11,6 +11,18 @@
 
 .footer_left {
   flex: 0.3;
+  display: flex;
+  align-items: center;
+  color: white;
+  width: 300px;
+}
+
+.footer_songInfo > h4 {
+  margin-bottom: 5px;
+}
+
+.footer_songInfo > p {
+  font-size: 12px;
 }
 
 .footer_center {
@@ -24,12 +36,14 @@
 }
 
 .footer_icon > * {
-  transition: 200ms opacity ease-in;
+  transition: 200ms color ease-in;
 }
 
 .footer_icon:hover {
   cursor: pointer;
-  opacity: 0.5;
+  color: #1ed15e;
+  transition: transform 0.2s ease-in-out;
+  transform: scale(1.2) !important;
 }
 
 .footer_right {
@@ -43,4 +57,11 @@
 
 .footer_right .MuiSlider-colorPrimary {
   color: white;
+}
+
+.footer_album_logo {
+  height: 60px;
+  width: 60px;
+  margin-right: 20px;
+  object-fit: contain;
 }
