@@ -1,4 +1,4 @@
-import { SET_PLAYLISTS, SET_TOKEN, SET_USER } from "./actions";
+import { SET_PLAYLISTS, SET_TOKEN, SET_USER, SET_DISCOVER_WEEKLY } from "./actions";
 
 export const initialState = {
   user: null,
@@ -27,6 +27,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         playlists: action.playlists
+      }
+    case SET_DISCOVER_WEEKLY:
+      return {
+        ...state,
+        discoverWeekly: action.discoverWeekly
       }
     default:
       return state;

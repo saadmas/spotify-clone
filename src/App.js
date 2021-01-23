@@ -5,7 +5,7 @@ import Login from './components/Login/Login';
 import Player from './components/Player/Player';
 import { getHashFromUrl } from './utils/spotify';
 import { useDataLayerValue } from './state/DataLayer';
-import { SET_TOKEN, SET_USER, SET_PLAYLISTS } from './state/actions';
+import { SET_TOKEN, SET_USER, SET_PLAYLISTS, SET_DISCOVER_WEEKLY } from './state/actions';
 
 import './App.css';
 
@@ -39,6 +39,11 @@ const App = () => {
       dispatch({ type: SET_PLAYLISTS, playlists });
     };
 
+    const setDiscoverWeekly = async () => {
+      const discoverWeekly = await spotifyApi.getPlaylist('37i9dQZEVXcHfFdTRrWJga');
+      dispatch({ type: SET_DISCOVER_WEEKLY, discoverWeekly });
+    };
+
     if (!window.location.hash) {
       return;
     }
@@ -46,9 +51,8 @@ const App = () => {
     setSpotifyAccessToken();
     setSpotifyUser();
     setSpotifyPlaylists();
+    setDiscoverWeekly();
   }, [dispatch]);
-
-  
 
   return (
     <div className="app">
